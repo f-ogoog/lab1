@@ -1,0 +1,105 @@
+From 3cf6321fc8276541ac288d6bfdee2d77bec3b3b0 Mon Sep 17 00:00:00 2001
+From: Oleh <zxcnmqqe@gmail.com>
+Date: Fri, 11 Oct 2024 12:37:28 +0200
+Subject: [PATCH] formatting: use tabs instead of spaces
+
+---
+ calculator.cpp                                |  4 +-
+ calculator.h                                  |  6 +--
+ .../0001-improve-calculation-accuracy.patch   | 50 -------------------
+ 3 files changed, 5 insertions(+), 55 deletions(-)
+ delete mode 100644 patches/0001-improve-calculation-accuracy.patch
+
+diff --git a/calculator.cpp b/calculator.cpp
+index d93e35b..f323e14 100644
+--- a/calculator.cpp
++++ b/calculator.cpp
+@@ -2,10 +2,10 @@
+ 
+ int Calculator::Add (double a, double b)
+ {
+-	return a + b + 0.5;
++	return a + b;
+ }
+ 
+ int Calculator::Sub (double a, double b)
+ {
+-    return Add (a, -b);
++	return Add (a, -b);
+ }
+diff --git a/calculator.h b/calculator.h
+index 3740907..d59d596 100644
+--- a/calculator.h
++++ b/calculator.h
+@@ -3,9 +3,9 @@
+ 
+ class Calculator
+ {
+-    public:
+-        int Add (double, double);
+-        int Sub (double, double);
++	public:
++		int Add (double, double);
++		int Sub (double, double);
+ };
+ 
+ #endif//CALCULATOR_H
+diff --git a/patches/0001-improve-calculation-accuracy.patch b/patches/0001-improve-calculation-accuracy.patch
+deleted file mode 100644
+index ca7ba94..0000000
+--- a/patches/0001-improve-calculation-accuracy.patch
++++ /dev/null
+@@ -1,50 +0,0 @@
+-From 669f6321a41da2337d975872e9294b8b91139010 Mon Sep 17 00:00:00 2001
+-From: Sergii Piatakov <sergii.piatakov@globallogic.com>
+-Date: Thu, 15 Nov 2018 15:21:34 +0200
+-Subject: [PATCH] improve calculation accuracy
+-
+-Allow using float point arguments to avoid truncation.
+-
+-Test: Add (4.9, 4.9) should return 10.
+-Signed-off-by: Sergii Piatakov <sergii.piatakov@globallogic.com>
+----
+- calculator.cpp | 4 ++--
+- calculator.h   | 4 ++--
+- 2 files changed, 4 insertions(+), 4 deletions(-)
+-
+-diff --git a/calculator.cpp b/calculator.cpp
+-index 3c63184..b91afea 100644
+---- a/calculator.cpp
+-+++ b/calculator.cpp
+-@@ -1,11 +1,11 @@
+- #include "calculator.h"
+- 
+--int Calculator::Add (int a, int b)
+-+int Calculator::Add (double a, double b)
+- {
+-     return a + b;
+- }
+- 
+--int Calculator::Sub (int a, int b)
+-+int Calculator::Sub (double a, double b)
+- {
+-     return Add (a, -b);
+- }
+-diff --git a/calculator.h b/calculator.h
+-index 84ff414..3740907 100644
+---- a/calculator.h
+-+++ b/calculator.h
+-@@ -4,8 +4,8 @@
+- class Calculator
+- {
+-     public:
+--        int Add (int, int);
+--        int Sub (int, int);
+-+        int Add (double, double);
+-+        int Sub (double, double);
+- };
+- 
+- #endif//CALCULATOR_H
+--- 
+-2.46.0.windows.1
+-
+-- 
+2.46.0.windows.1
+
